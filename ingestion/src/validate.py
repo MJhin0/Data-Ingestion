@@ -82,7 +82,7 @@ def apply_rules(df: pd.DataFrame, rules: list):
     return valid_df, reject_df
 
 
-# The actual used function in main
+# The function used in main
 def validate(df, schema, rules):
     df1, rej1 = apply_schema_casts(df, schema)
     df2, rej2 = enforce_required(df1, schema)

@@ -1,5 +1,6 @@
 from ingestion.src.logger import get_logger
 from ingestion.src.readers.csv_reader import read_csv
+from ingestion.src.clean import clean
 
 logger = get_logger(__name__)
 
@@ -7,10 +8,20 @@ def main():
     logger.info("Starting CSV ingestion")
 
     # Path relative to project root, can do user input maybe
+    source_name = "UberDataset.csv"
     csv_path = "data/UberDataset.csv"
+
+    # Read
     df = read_csv(csv_path)
     logger.info(f"Dataframe loaded with {len(df)} rows and {len(df.columns)} columns")
-    print(df.head()) # show output
+
+    # Clean (saves cleaned + rejects CSVs)
+    df_clean, df_rejects = clean(df, source_name)
+    logger.info(f"{source_name} cleaned={len(df_clean)}, rejected={len(df_rejects)}")
+
+    print(df_clean.head()) # show output
+
+
 
 
 '''
