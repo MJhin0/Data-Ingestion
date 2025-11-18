@@ -52,7 +52,6 @@ def drop_duplicates(df: pd.DataFrame):
 
     if removed > 0:
         logger.info(f"Removed {removed} duplicate rows")
-
     dupes = df[~df.index.isin(df_nodup.index)].copy()
     if len(dupes) > 0:
         dupes["reject_reason"] = "Duplicate row"
@@ -60,16 +59,15 @@ def drop_duplicates(df: pd.DataFrame):
     return df_nodup, dupes
 
 
-
+# Save parameter df to the parameter path
 def save_to_csv(df: pd.DataFrame, path: str):
     output_path = Path(path)
     output_path.parent.mkdir(parents = True, exist_ok = True)
     df.to_csv(output_path, index = False)
-    logger.info(f"Saved: {output_path}")
 
 
 # The function used in main
-def clean(df: pd.DataFrame, source_name: str, required_cols=None):
+def clean(df: pd.DataFrame, source_name: str, required_cols = None):
     df = normalize_columns(df)
     df = clean_strings(df)
 
@@ -83,9 +81,6 @@ def clean(df: pd.DataFrame, source_name: str, required_cols=None):
     save_to_csv(deduped_df, f"data/{source_name}_cleaned.csv")
     save_to_csv(rejects_df, f"data/{source_name}_rejected.csv")
 
-    logger.info(
-        f"Cleaning complete for {source_name}: "
-        f"cleaned={len(deduped_df)}, rejected={len(rejects_df)}"
-    )
+    logger.info(f"Cleaned={len(deduped_df)}, Rejected={len(rejects_df)}")
 
     return deduped_df, rejects_df
