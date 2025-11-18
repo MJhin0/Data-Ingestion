@@ -1,0 +1,3 @@
+2025-11-18 10:51:04 | INFO | __main__ | Starting CSV ingestion
+2025-11-18 10:51:04 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
+2025-11-18 10:51:04 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
