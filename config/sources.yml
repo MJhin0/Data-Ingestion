@@ -1,0 +1,20 @@
+defaults:
+  db_url: postgresql+psycopg2://revature:revature@localhost:5432/mydb
+  # username: revature     password: revature
+  table_prefix: uber_   # optional prefix for staging tables
+  batch_size: 5000
+
+sources:
+  - name: uber_trips
+    file: data/UberDataset.csv
+    schema:
+      start_date: datetime
+      end_date: datetime
+      category: str
+      start: str
+      stop: str
+      miles: float
+      purpose: str
+    rules:
+      - rule: "miles >= 0"
+      - rule: "start_date <= end_date"

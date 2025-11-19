@@ -81,7 +81,7 @@ def apply_rules(df: pd.DataFrame, rules: list):
 
 
 # The function used in main
-def validate(df, schema, rules, source_name):
+def validate(df, schema, rules):
     df1, rej1 = apply_schema(df, schema)
     df2, rej2 = enforce_required(df1, schema)
     df3, rej3 = apply_rules(df2, rules)

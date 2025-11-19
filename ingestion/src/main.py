@@ -2,8 +2,11 @@ from ingestion.src.logger import get_logger
 from ingestion.src.readers.csv_reader import read_csv
 from ingestion.src.clean import clean
 from ingestion.src.validate import validate
+from ingestion.src.load import load_from_config
 from pathlib import Path
 import pandas as pd
+import psycopg2
+import yaml
 import os
 
 
@@ -44,19 +47,26 @@ def main():
 #       {"rule": "len(stop) > 0"}                   # can't be blank, redundant with cleaning
 #       {"rule": "len(purpose) > 0"}                # can't be blank, redundant with cleaning
     ]
-    df_valid, rejects_validate = validate(df_clean, schema, rules, source_name)
-    logger.info(f"Validation complete: {len(df_valid)} valid, {len(rejects_validate)} rejected")
+    df_valid, rejects_valid = validate(df_clean, schema, rules)
+    logger.info(f"Validation complete: {len(df_valid)} valid, {len(rejects_valid)} rejected")
 
     # Save validated + rejects
     save_to_csv(df_valid, f"data/{source_name}_validated.csv")
-    all_rejects = pd.concat([rejects_clean, rejects_validate], ignore_index = True)
+    all_rejects = pd.concat([rejects_clean, rejects_valid], ignore_index = True)
     save_to_csv(all_rejects, f"data/{source_name}_rejected.csv")
     logger.info(f"Saved CSV files: {source_name}_validated.csv and {source_name}_rejected.csv")
+
+    # Load to Postgres
+    with open("config/sources.yml") as f:
+        cfg = yaml.safe_load(f)
+
+    for source in cfg['sources']:
+        load_from_config({**cfg['defaults'], **source})
 
     print("Pipeline finished.")
 
 
-# Save parameter df to the parameter path
+# Save parameter dataframe to the parameter path
 def save_to_csv(df: pd.DataFrame, path: str):
     output_path = Path(path)
     output_path.parent.mkdir(parents = True, exist_ok = True)

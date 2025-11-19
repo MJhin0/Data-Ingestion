@@ -5,3 +5,7 @@ python -m ingestion.src.main
 git add .
 git commit -m ""
 git push
+
+
+work on dbeaver
+primary key
