@@ -1,29 +1,10 @@
-2025-11-18 15:04:32 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
-2025-11-18 15:04:32 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Normalized columns: ['START_DATE', 'END_DATE', 'CATEGORY', 'START', 'STOP', 'MILES', 'PURPOSE'] -> ['start_date', 'end_date', 'category', 'start', 'stop', 'miles', 'purpose']
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Cleaned string columns: ['start_date', 'end_date', 'category', 'start', 'stop', 'purpose']
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Rejected 503 rows due to missing data
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Removed 1 duplicate rows
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Saved: data\UberDataset.csv_cleaned.csv
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Saved: data\UberDataset.csv_rejected.csv
-2025-11-18 15:04:32 | INFO | ingestion.src.clean | Cleaning complete for UberDataset.csv: cleaned=652, rejected=504
-2025-11-18 15:04:32 | INFO | __main__ | UberDataset.csv cleaned=652, rejected=504
-
-2025-11-18 15:12:18 | INFO | __main__ | Starting CSV ingestion
-2025-11-18 15:12:18 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
-2025-11-18 15:12:18 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
-2025-11-18 15:12:18 | INFO | ingestion.src.clean | Normalized columns: ['START_DATE', 'END_DATE', 'CATEGORY', 'START', 'STOP', 'MILES', 'PURPOSE'] -> ['start_date', 'end_date', 'category', 'start', 'stop', 'miles', 'purpose']
-2025-11-18 15:12:18 | INFO | ingestion.src.clean | Cleaned string columns: ['start_date', 'end_date', 'category', 'start', 'stop', 'purpose']
-2025-11-18 15:12:18 | INFO | ingestion.src.clean | Rejected 503 rows due to missing data
-2025-11-18 15:12:18 | INFO | ingestion.src.clean | Removed 1 duplicate rows
-2025-11-18 15:12:18 | INFO | ingestion.src.clean | Cleaned=652, Rejected=504
-2025-11-18 15:12:18 | INFO | __main__ | UberDataset.csv cleaned=652, rejected=504
-2025-11-18 15:12:55 | INFO | __main__ | Starting CSV ingestion
-2025-11-18 15:12:55 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
-2025-11-18 15:12:55 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
-2025-11-18 15:12:55 | INFO | ingestion.src.clean | Normalized columns: ['START_DATE', 'END_DATE', 'CATEGORY', 'START', 'STOP', 'MILES', 'PURPOSE'] -> ['start_date', 'end_date', 'category', 'start', 'stop', 'miles', 'purpose']
-2025-11-18 15:12:55 | INFO | ingestion.src.clean | Cleaned string columns: ['start_date', 'end_date', 'category', 'start', 'stop', 'purpose']
-2025-11-18 15:12:55 | INFO | ingestion.src.clean | Rejected 503 rows due to missing data
-2025-11-18 15:12:55 | INFO | ingestion.src.clean | Removed 1 duplicate rows
-2025-11-18 15:12:55 | INFO | ingestion.src.clean | Cleaned=652, Rejected=504
-2025-11-18 15:12:55 | INFO | __main__ | UberDataset.csv cleaned=652, rejected=504
+2025-11-19 11:44:59 | INFO | __main__ | Starting CSV ingestion
+2025-11-19 11:44:59 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
+2025-11-19 11:44:59 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
+2025-11-19 11:44:59 | INFO | ingestion.src.clean | Normalized columns: ['START_DATE', 'END_DATE', 'CATEGORY', 'START', 'STOP', 'MILES', 'PURPOSE'] -> ['start_date', 'end_date', 'category', 'start', 'stop', 'miles', 'purpose']
+2025-11-19 11:44:59 | INFO | ingestion.src.clean | Cleaned string columns: ['start_date', 'end_date', 'category', 'start', 'stop', 'purpose']
+2025-11-19 11:44:59 | INFO | ingestion.src.clean | Rejected 503 rows due to missing data
+2025-11-19 11:44:59 | INFO | ingestion.src.clean | Removed 1 duplicate rows
+2025-11-19 11:44:59 | INFO | __main__ | After cleaning: 652 rows valid, 504 rejected
+2025-11-19 11:44:59 | INFO | __main__ | Validation complete: 261 valid, 391 rejected
+2025-11-19 11:44:59 | INFO | __main__ | Saved CSV files: UberDataset_validated.csv and UberDataset_rejected.csv

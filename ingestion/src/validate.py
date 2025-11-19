@@ -1,19 +1,17 @@
-import pandas as pd
 from ingestion.src.logger import get_logger 
+import pandas as pd
 
 logger = get_logger(__name__)
 
-# Casts DataFrame columns to the types schema.
-def apply_schema_casts(df: pd.DataFrame, schema: dict):
+# Casts DataFrame columns to the types in the schema
+def apply_schema(df: pd.DataFrame, schema: dict):
 
     df = df.copy()
     rejects = []
 
     for col, type_name in schema.items():
         if col not in df.columns:
-            rejects.append({"Reason": f"Missing column '{col}'", "raw": {}})
             continue
-
         try:
             if type_name == "int":
                 df[col] = pd.to_numeric(df[col], errors = "coerce").astype("Int64")
@@ -45,7 +43,7 @@ def enforce_required(df: pd.DataFrame, schema: dict):
     required_cols = list(schema.keys())
     rejects = []
 
-    invalid_mask = df[required_cols].isna().any(axis=1)
+    invalid_mask = df[list(schema.keys())].isna().any(axis = 1)
     invalid_rows = df[invalid_mask]
     valid_rows = df[~invalid_mask]
 
@@ -83,11 +81,10 @@ def apply_rules(df: pd.DataFrame, rules: list):
 
 
 # The function used in main
-def validate(df, schema, rules):
-    df1, rej1 = apply_schema_casts(df, schema)
+def validate(df, schema, rules, source_name):
+    df1, rej1 = apply_schema(df, schema)
     df2, rej2 = enforce_required(df1, schema)
     df3, rej3 = apply_rules(df2, rules)
 
     rejects = pd.concat([rej1, rej2, rej3], ignore_index = True)
-
     return df3, rejects

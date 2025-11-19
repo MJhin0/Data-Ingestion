@@ -1,5 +1,4 @@
 import pandas as pd
-from pathlib import Path
 from ingestion.src.logger import get_logger
 
 logger = get_logger(__name__)
@@ -59,13 +58,6 @@ def drop_duplicates(df: pd.DataFrame):
     return df_nodup, dupes
 
 
-# Save parameter df to the parameter path
-def save_to_csv(df: pd.DataFrame, path: str):
-    output_path = Path(path)
-    output_path.parent.mkdir(parents = True, exist_ok = True)
-    df.to_csv(output_path, index = False)
-
-
 # The function used in main
 def clean(df: pd.DataFrame, source_name: str, required_cols = None):
     df = normalize_columns(df)
@@ -77,10 +69,5 @@ def clean(df: pd.DataFrame, source_name: str, required_cols = None):
     deduped_df, duplicate_rej = drop_duplicates(valid_df)
     # Combine rejects
     rejects_df = pd.concat([missing_rej, duplicate_rej], ignore_index = True)
-    # Save cleaned + rejects to CSV
-    save_to_csv(deduped_df, f"data/{source_name}_cleaned.csv")
-    save_to_csv(rejects_df, f"data/{source_name}_rejected.csv")
-
-    logger.info(f"Cleaned={len(deduped_df)}, Rejected={len(rejects_df)}")
 
     return deduped_df, rejects_df
