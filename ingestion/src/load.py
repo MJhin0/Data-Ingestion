@@ -19,4 +19,3 @@ def load_from_config(source_config: dict):
 
     df = pd.read_csv(file_path)
     load_to_postgres(df, table_name, conn_string)
-

@@ -36,3 +36,25 @@
 2025-11-19 14:26:59 | INFO | __main__ | After cleaning: 652 rows valid, 504 rejected
 2025-11-19 14:26:59 | INFO | __main__ | Validation complete: 261 valid, 391 rejected
 2025-11-19 14:26:59 | INFO | __main__ | Saved CSV files: UberDataset_validated.csv and UberDataset_rejected.csv
+2025-11-20 10:11:43 | INFO | __main__ | Starting CSV ingestion
+2025-11-20 10:11:43 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
+2025-11-20 10:11:43 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
+2025-11-20 10:11:43 | INFO | ingestion.src.clean | Normalized columns: ['START_DATE', 'END_DATE', 'CATEGORY', 'START', 'STOP', 'MILES', 'PURPOSE'] -> ['start_date', 'end_date', 'category', 'start', 'stop', 'miles', 'purpose']
+2025-11-20 10:11:43 | INFO | ingestion.src.clean | Cleaned string columns: ['start_date', 'end_date', 'category', 'start', 'stop', 'purpose']
+2025-11-20 10:11:43 | INFO | ingestion.src.clean | Rejected 503 rows due to missing data
+2025-11-20 10:11:43 | INFO | ingestion.src.clean | Removed 1 duplicate rows
+2025-11-20 10:11:43 | INFO | __main__ | After cleaning: 652 rows valid, 504 rejected
+2025-11-20 10:11:43 | INFO | __main__ | Validation complete: 261 valid, 391 rejected
+2025-11-20 10:11:43 | INFO | __main__ | Saved CSV files: UberDataset_validated.csv and UberDataset_rejected.csv
+2025-11-20 10:11:43 | INFO | ingestion.src.load | Loaded 1156 rows into table uber_trips
+2025-11-20 10:25:39 | INFO | __main__ | Starting CSV ingestion
+2025-11-20 10:25:39 | INFO | ingestion.src.readers.csv_reader | Read CSV: data/UberDataset.csv
+2025-11-20 10:25:39 | INFO | __main__ | Dataframe loaded with 1156 rows and 7 columns
+2025-11-20 10:25:39 | INFO | ingestion.src.clean | Normalized columns: ['START_DATE', 'END_DATE', 'CATEGORY', 'START', 'STOP', 'MILES', 'PURPOSE'] -> ['start_date', 'end_date', 'category', 'start', 'stop', 'miles', 'purpose']
+2025-11-20 10:25:39 | INFO | ingestion.src.clean | Cleaned string columns: ['start_date', 'end_date', 'category', 'start', 'stop', 'purpose']
+2025-11-20 10:25:39 | INFO | ingestion.src.clean | Rejected 503 rows due to missing data
+2025-11-20 10:25:39 | INFO | ingestion.src.clean | Removed 1 duplicate rows
+2025-11-20 10:25:39 | INFO | __main__ | After cleaning: 652 rows valid, 504 rejected
+2025-11-20 10:25:39 | INFO | __main__ | Validation complete: 261 valid, 391 rejected
+2025-11-20 10:25:39 | INFO | __main__ | Saved CSV files: UberDataset_validated.csv and UberDataset_rejected.csv
+2025-11-20 10:25:40 | INFO | ingestion.src.load | Loaded 261 rows into table uber_trips
