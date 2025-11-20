@@ -7,4 +7,4 @@ git commit -m ""
 git push
 
 primary key
-pytest
+pytest (use faker)
