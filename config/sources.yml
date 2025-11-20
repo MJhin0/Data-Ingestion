@@ -1,6 +1,6 @@
 defaults:
+  # username: postgres     password: 16034
   db_url: postgresql+psycopg2://postgres:16034@localhost:5432/postgres
-  # username: revature     password: revature
   table_prefix: uber_   # optional prefix for staging tables
   batch_size: 5000
 

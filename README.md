@@ -8,3 +8,4 @@ git push
 
 primary key
 pytest (use faker)
+make a readme.md
