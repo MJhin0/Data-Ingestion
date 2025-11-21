@@ -6,7 +6,6 @@ from ingestion.src.load import load_from_config
 from pathlib import Path
 import pandas as pd
 import yaml
-import uuid
 
 
 logger = get_logger(__name__)
