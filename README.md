@@ -6,6 +6,11 @@ git add .
 git commit -m ""
 git push
 
-primary key
 pytest (use faker)
 make a readme.md
+
+use import psycopg2 over sqlalchemy?
+user input for csv name
+
+
+https://www.kaggle.com/datasets/bhanupratapbiswas/uber-data-analysis

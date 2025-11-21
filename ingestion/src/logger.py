@@ -3,8 +3,8 @@ from pathlib import Path
 
 def get_logger(name: str, log_file = "logs/ingestion.log"):
     log_path = Path(log_file)
-    # Makes the log directory if it's missing
-    log_path.parent.mkdir(parents=True, exist_ok=True)
+    # Make log directory if missing
+    log_path.parent.mkdir(parents = True, exist_ok = True)
 
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)

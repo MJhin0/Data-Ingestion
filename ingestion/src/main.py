@@ -5,9 +5,8 @@ from ingestion.src.validate import validate
 from ingestion.src.load import load_from_config
 from pathlib import Path
 import pandas as pd
-import psycopg2
 import yaml
-import os
+import uuid
 
 
 logger = get_logger(__name__)
@@ -19,7 +18,7 @@ def main():
     csv_path = "data/UberDataset.csv"
     source_name = "UberDataset"
 
-    # Read (puts csv in df)
+    # Read (puts csv in dataframe)
     df = read_csv(csv_path)
     logger.info(f"Dataframe loaded with {len(df)} rows and {len(df.columns)} columns")
 
