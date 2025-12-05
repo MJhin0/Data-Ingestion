@@ -9,15 +9,14 @@ and UUID-based primary key creation.
 
 ## Features
 
--   **CSV Reading** using a dedicated reader module\
--   **Cleaning**: column normalization, string cleanup, removing
-    duplicates, splitting missing rows\
--   **Validation** using schema + rule checks from YAML\
--   **Loading** to PostgreSQL using SQLAlchemy\
--   **UUID Primary Keys** automatically generated during load\
--   **Logging** to `logs/ingestion.log`\
+-   **CSV Reading** using a dedicated reader module
+-   **Cleaning**: column normalization, string cleanup, removing duplicates, splitting missing rows
+-   **Validation** using schema + rule checks from YAML
+-   **Loading** to PostgreSQL using SQLAlchemy
+-   **UUID Primary Keys** automatically generated during load
+-   **Logging** to `logs/ingestion.log`
 -   **Unit Tests** for every stage (`clean`, `read_csv`, `validate`,
-    `load`)\
+    `load`)
 -   **Config-driven ingestion** via `sources.yml`
 
 ------------------------------------------------------------------------
@@ -68,12 +67,11 @@ python -m ingestion.src.main
 ```
 
 This will:
-
-1.  Read the CSV\
-2.  Clean it\
-3.  Validate using YAML config\
-4.  Save `*_validated.csv` and `*_rejected.csv`\
-5.  Insert validated data into PostgreSQL\
+1.  Read the CSV
+2.  Clean it
+3.  Validate using YAML config
+4.  Save `*_validated.csv` and `*_rejected.csv`
+5.  Insert validated data into PostgreSQL
 6.  Auto-generate UUID primary keys
 
 ------------------------------------------------------------------------
@@ -81,7 +79,6 @@ This will:
 ## Running Tests
 
 Pytest is preconfigured with `pytest.ini`.
-
 Run all tests:
 
 ``` bash
@@ -93,10 +90,9 @@ pytest -v
 ## Database Load Logic
 
 The loader:
-
--   Creates SQLAlchemy engine\
--   Loads DataFrame via `df.to_sql(...)`\
--   Adds a UUID column before loading\
+-   Creates a SQLAlchemy engine
+-   Loads DataFrame via `df.to_sql(...)`
+-   Adds a UUID column before loading
 -   Ensures a primary key exists
 
 ------------------------------------------------------------------------
@@ -113,7 +109,7 @@ Source of dataset: https://www.kaggle.com/datasets/bhanupratapbiswas/uber-data-a
 
 ------------------------------------------------------------------------
 
-## 👤 Author
+## Author
 
-Michael Jhin\
+Michael Jhin
 Built as part of a professional ETL / Data Engineering learning project.
