@@ -2,14 +2,13 @@ import pandas as pd
 from pathlib import Path
 from ingestion.src.logger import get_logger
 
-# logging.basicConfig(level=logging.INFO)
 logger = get_logger(__name__)
 
 def read_csv(path: str):
 
     file_path = Path(path).resolve()
     
-    # Checking for CSV file requested
+    # Checking for CSV file
     if not file_path.exists():
         logger.error(f"CSV file not found: {path}")
         raise FileNotFoundError(f"CSV file not found: {path}")

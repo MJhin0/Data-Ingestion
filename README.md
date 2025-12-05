@@ -1,15 +1,14 @@
 .\venv\Scripts\Activate.ps1
 
 python -m ingestion.src.main
+pytest -v
 
 git add .
 git commit -m ""
 git push
 
-pytest (use faker)
-make a readme.md
 
-use import psycopg2 over sqlalchemy?
+make a readme.md
 user input for csv name
 
 

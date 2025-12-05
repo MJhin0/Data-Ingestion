@@ -63,11 +63,8 @@ def clean(df: pd.DataFrame, source_name: str, required_cols = None):
     df = normalize_columns(df)
     df = clean_strings(df)
 
-    # Missing values
     valid_df, missing_rej = split_missing(df, required_cols = required_cols)
-    # Duplicates
     deduped_df, duplicate_rej = drop_duplicates(valid_df)
-    # Combine rejects
     rejects_df = pd.concat([missing_rej, duplicate_rej], ignore_index = True)
 
     return deduped_df, rejects_df

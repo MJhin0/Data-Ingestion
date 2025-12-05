@@ -110,3 +110,10 @@
 2025-11-21 15:40:01 | INFO | __main__ | Validation complete: 261 valid, 391 rejected
 2025-11-21 15:40:01 | INFO | __main__ | Saved CSV files: UberDataset_validated.csv and UberDataset_rejected.csv
 2025-11-21 15:40:02 | INFO | ingestion.src.load | Loaded 261 rows into table uber_trips
+2025-12-05 13:56:31 | INFO | ingestion.src.clean | Normalized columns: ['A Col', 'B COL '] -> ['a_col', 'b_col']
+2025-12-05 13:56:31 | INFO | ingestion.src.clean | Cleaned string columns: ['name']
+2025-12-05 13:56:31 | INFO | ingestion.src.clean | Rejected 1 rows due to missing data
+2025-12-05 13:56:31 | INFO | ingestion.src.clean | Removed 1 duplicate rows
+2025-12-05 13:56:31 | INFO | ingestion.src.readers.csv_reader | Read CSV: C:\Users\Michael\AppData\Local\Temp\pytest-of-Michael\pytest-0\test_read_csv0\test.csv
+2025-12-05 13:56:31 | ERROR | ingestion.src.readers.csv_reader | CSV file not found: not_real.csv
+2025-12-05 13:56:32 | INFO | ingestion.src.load | Loaded 1 rows into table test_table
