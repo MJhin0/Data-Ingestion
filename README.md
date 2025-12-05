@@ -7,33 +7,39 @@ This project reads CSV files, cleans and validates the data, and loads validated
 
 ## Project Structure
 
-project/
-├── ingestion/
-│ └── src/
-│ ├── readers/
-│ │ └── csv_reader.py
-│ ├── clean.py
-│ ├── validate.py
-│ ├── load.py
-│ └── logger.py
+Data Ingestion/
 │
 ├── config/
-│ └── sources.yml
+│   └── sources.yml
 │
 ├── data/
-│ ├── UberDataset.csv
-│ ├── UberDataset_validated.csv
-│ └── UberDataset_rejected.csv
+│   ├── UberDataset.csv
+│   ├── UberDataset_validated.csv
+│   └── UberDataset_rejected.csv
+│
+├── ingestion/
+│   └── src/
+│       ├── readers/
+│       │   └── csv_reader.py
+│       ├── clean.py
+│       ├── validate.py
+│       ├── load.py
+│       ├── logger.py
+│       ├── main.py
+│       └── __init__.py
+│
+├── logs/
+│   └── ingestion.log
 │
 ├── test/
-│ ├── test_clean.py
-│ ├── test_csv_reader.py
-│ ├── test_validate.py
-│ └── test_load.py
+│   ├── test_clean.py
+│   ├── test_validate.py
+│   ├── test_csv_reader.py
+│   └── test_load.py
 │
-├── main.py
-├── pytest.ini
-└── requirements.txt
+├── README.md
+├── requirements.txt
+└── pytest.ini
 
 ---
 

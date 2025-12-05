@@ -1,6 +1,7 @@
 from ingestion.src.logger import get_logger 
 import pandas as pd
 
+
 logger = get_logger(__name__)
 
 # Casts DataFrame columns to the types in the schema

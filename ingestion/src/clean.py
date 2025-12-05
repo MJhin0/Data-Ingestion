@@ -1,8 +1,8 @@
 import pandas as pd
 from ingestion.src.logger import get_logger
 
-logger = get_logger(__name__)
 
+logger = get_logger(__name__)
 
 # Standardizes column names: lowercase, strip spaces, replace spaces with underscores
 def normalize_columns(df: pd.DataFrame):

@@ -13,7 +13,7 @@ logger = get_logger(__name__)
 def main():
     logger.info("Starting CSV ingestion")
 
-    # Path relative to project root, can do user input maybe
+    # Path relative to project root
     csv_path = "data/UberDataset.csv"
     source_name = "UberDataset"
 
@@ -25,7 +25,7 @@ def main():
     df_clean, rejects_clean = clean(df, source_name)
     logger.info(f"After cleaning: {len(df_clean)} rows valid, {len(rejects_clean)} rejected")
 
-    # Load config frrom yml
+    # Load config from yml
     with open("config/sources.yml") as f:
         cfg = yaml.safe_load(f)
     source_cfg = cfg["sources"][0]
