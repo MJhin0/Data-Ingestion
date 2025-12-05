@@ -1,63 +1,50 @@
-Data Ingestion Pipeline
+# Data Ingestion Pipeline
 
-A modular and test-driven ETL (Extract, Transform, Load) pipeline built in Python.
-The pipeline ingests CSV files, cleans and validates the data, then loads it into a PostgreSQL database.
-Unit tests are included using pytest.
+A modular, test-driven **ETL (Extract → Transform → Load)** pipeline in Python.  
+This project reads CSV files, cleans and validates the data, and loads validated rows into a PostgreSQL database. Unit tests are included (pytest).
 
-Project Structure
+---
+
+## Project Structure
+
 project/
-│── ingestion/
-│   └── src/
-│       ├── readers/
-│       │   └── csv_reader.py
-│       ├── clean.py
-│       ├── validate.py
-│       ├── load.py
-│       └── logger.py
+├── ingestion/
+│ └── src/
+│ ├── readers/
+│ │ └── csv_reader.py
+│ ├── clean.py
+│ ├── validate.py
+│ ├── load.py
+│ └── logger.py
 │
-│── config/
-│   └── sources.yml
+├── config/
+│ └── sources.yml
 │
-│── data/
-│   ├── UberDataset.csv
-│   ├── UberDataset_validated.csv
-│   └── UberDataset_rejected.csv
+├── data/
+│ ├── UberDataset.csv
+│ ├── UberDataset_validated.csv
+│ └── UberDataset_rejected.csv
 │
-│── test/
-│   ├── test_clean.py
-│   ├── test_csv_reader.py
-│   ├── test_validate.py
-│   └── test_load.py
+├── test/
+│ ├── test_clean.py
+│ ├── test_csv_reader.py
+│ ├── test_validate.py
+│ └── test_load.py
 │
-│── main.py
-│── pytest.ini
-│── requirements.txt
+├── main.py
+├── pytest.ini
+└── requirements.txt
 
-Features
+---
 
-Extract
-Loads CSV files into pandas DataFrames.
+## Features
 
-Transform
-    Cleans:
-        Missing data
-        Duplicates
-        Normalizes column names
-        Standardizes string formatting
+- **Extract:** Read CSV files into `pandas` DataFrames.  
+- **Transform / Clean:** Normalize columns, trim strings, drop missing rows and full-row duplicates.  
+- **Validate:** Enforce schema (types) and business rules; produce reject reasons.  
+- **Load:** Write validated data to PostgreSQL using SQLAlchemy; add UUID primary key.  
+- **Testing:** Unit tests implemented with `pytest`. Mocked DB tests included.
 
-    Validates:
-        Schema (data types)
-        Custom business rules
-        Produces _validated.csv and _rejected.csv
-
-Load
-    Loads validated data into PostgreSQL
-    Automatically adds a UUID primary key (id)
-    Uses SQLAlchemy for engine management
-
-Testing
-    Full unit test suite using pytest
-    All tests pass (10 passed)
-
+---
 
 Source of dataset: https://www.kaggle.com/datasets/bhanupratapbiswas/uber-data-analysis
